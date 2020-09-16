@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AssignmentApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <%if alert == "Invalid Email or password."%>
+      <p class="alert"> Username/Password incorrect</p>
+    <%else%>
+      <p class="alert"><%= alert%></p>
+    <%end%>
+
+    <% if user_signed_in? %>
+      <div class="logout"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
+
+<style>
+  .logout {
+    float: right;
+    font-size: initial;
+}
+  </style>

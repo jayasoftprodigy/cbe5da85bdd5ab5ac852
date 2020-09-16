@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <h3><%= link_to question.try(:ques), question%></h3>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="add_new_question"><%= link_to 'Add New Question', new_question_path %></div>
+
+<style>
+  .add_new_question {
+    text-align: center;
+    font-size: initial;
+}
+  </style>

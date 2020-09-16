@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @question.ques %>
+</p>
+
+<p>
+<strong> Answers list</strong>
+</p>
+
+  <%@answers.each do |ans|%>
+  <li>
+    <%= ans.solution%> Posted_by <b><%=user_name(ans.user_id)%></b><br><br>
+    </li>
+  <%end%>
+
+<%= link_to 'Add your answer', new_answer_path(question_id: @question.id) %><br><br>
+<div class="follow_user"><%= link_to 'Follow User', follow_users_question_path(id: @question.id, follow_id: @question.user_id)%><br><br></div>
+<div class="follow_topic"><%= link_to 'Follow Topic', follow_topic_question_path(id: @question.id, topic_id: @question.topic_id)%><br></br></div>
+<%= link_to 'Back', questions_path %>
